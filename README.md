@@ -75,17 +75,17 @@ python -m spacy download zh_core_web_sm
 ### Translate / 翻译
 
 ```python
-from smt.decoder import SMTDecoder
-from smt.language_model import LanguageModel
-from smt.phrase_table import PhraseTable
-from smt.config import SMTConfig
+from smt.decoder import PhraseDecoder
+from smt.language_model import KneserNeyLM
+from smt.phrase_table import load_phrase_table
+from smt.config import Config
 
-cfg = SMTConfig()
+cfg = Config()
 
 # Load models
-lm = LanguageModel.load("models/zh2en_sym/lm.json")
-pt = PhraseTable.load("models/zh2en_sym/phrase_table.txt")
-decoder = SMTDecoder(cfg, lm, pt)
+lm = KneserNeyLM.load("models/zh2en_sym/lm.json")
+pt = load_phrase_table("models/zh2en_sym/phrase_table.txt")
+decoder = PhraseDecoder(cfg, lm, pt)
 
 # Translate
 result = decoder.translate("企业推动协议")

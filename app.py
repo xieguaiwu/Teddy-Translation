@@ -10,11 +10,11 @@ import sys
 import gradio as gr
 from pathlib import Path
 
-# Ensure the smt package is importable
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # ── Lazy model loading ──────────────────────────────────────
 _MODELS = {}
+
 
 def get_model(direction: str, variant: str = "sym"):
     """Load and cache an SMT model."""
@@ -22,40 +22,35 @@ def get_model(direction: str, variant: str = "sym"):
     if key in _MODELS:
         return _MODELS[key]
 
-    from smt.decoder import SMTDecoder
-    from smt.language_model import LanguageModel
-    from smt.phrase_table import PhraseTable
-    from smt.config import SMTConfig
+    from smt.decoder import PhraseDecoder
+    from smt.language_model import KneserNeyLM
+    from smt.phrase_table import load_phrase_table
 
     base = Path("models")
     if direction == "zh2en":
         model_dir = base / "zh2en_sym"
+        if variant == "fa":
+            model_dir = base / "zh2en_fa"
     elif direction == "en2zh":
         model_dir = base / f"en2zh_{variant}"
-
-    cfg = SMTConfig()
 
     # Load language model
     lm_path = model_dir / "lm.json"
     if not lm_path.exists():
         lm_path = model_dir / "lm.pkl"
-    lm = LanguageModel.load(str(lm_path))
+    if not lm_path.exists():
+        raise FileNotFoundError(f"No LM file found in {model_dir}")
+    lm = KneserNeyLM.load(str(lm_path))
 
     # Load phrase table
     pt_path = model_dir / "phrase_table.txt"
-    pt = PhraseTable.load(str(pt_path))
+    if not pt_path.exists():
+        raise FileNotFoundError(f"No phrase table found in {pt_path}")
+    pt = load_phrase_table(str(pt_path))
 
-    decoder = SMTDecoder(cfg, lm, pt)
+    decoder = PhraseDecoder(pt, lm)
     _MODELS[key] = decoder
     return decoder
-
-
-def detect_language(text: str) -> str:
-    """Rough detection: if any CJK char → Chinese, else English."""
-    for ch in text:
-        if '\u4e00' <= ch <= '\u9fff':
-            return "zh"
-    return "en"
 
 
 def translate(text: str, model_choice: str) -> str:
@@ -63,14 +58,15 @@ def translate(text: str, model_choice: str) -> str:
     if not text or not text.strip():
         return ""
 
-    # Determine direction from model choice
     direction_map = {
         "ZH → EN (sym)": "zh2en",
+        "ZH → EN (fast_align)": "zh2en",
         "EN → ZH (sym)": "en2zh",
         "EN → ZH (fast_align)": "en2zh",
     }
     variant_map = {
         "ZH → EN (sym)": "sym",
+        "ZH → EN (fast_align)": "fa",
         "EN → ZH (sym)": "sym",
         "EN → ZH (fast_align)": "fa",
     }
@@ -82,20 +78,29 @@ def translate(text: str, model_choice: str) -> str:
         return "Unknown model selection."
 
     try:
+        from smt.data_prep import tokenize
+
         decoder = get_model(direction, variant)
-        result = decoder.translate(text.strip())
-        return result
+
+        # Tokenize by detected language
+        lang = "zh" if direction == "zh2en" else "en"
+        tokenized = tokenize(text.strip(), lang)
+        tokens = tokenized.split()
+
+        result_tokens, score = decoder.decode(tokens)
+        output = " ".join(result_tokens)
+        return output if output else "(no translation)"
     except Exception as e:
-        return f"[Error] {e}"
+        return f"[Error] {type(e).__name__}: {e}"
 
 
 # ── Examples ─────────────────────────────────────────────────
 EXAMPLES = [
     ["企业推动协议", "ZH → EN (sym)"],
-    ["President announced new economic policy aimed at promoting employment growth", "EN → ZH (sym)"],
-    ["教育部宣布将增加对农村学校的教育投入", "ZH → EN (sym)"],
-    ["The unemployment rate fell to its lowest level in over a decade", "EN → ZH (sym)"],
-    ["最新数据显示，中国第三季度GDP增长超出预期", "ZH → EN (sym)"],
+    ["President announced new economic policy", "EN → ZH (fast_align)"],
+    ["经济危机不断加深", "ZH → EN (fast_align)"],
+    ["The unemployment rate fell to its lowest level", "EN → ZH (sym)"],
+    ["最新数据显示中国第三季度GDP增长超出预期", "ZH → EN (fast_align)"],
 ]
 
 # ── UI ───────────────────────────────────────────────────────
@@ -104,16 +109,17 @@ DESCRIPTION = """
 
 **Phrase-Based Statistical Machine Translation** (ZH↔EN)
 
-A classic SMT system — no neural networks, just IBM alignment + phrase tables + beam search.
+A classic SMT system — no neural networks, just IBM/HMM alignment
++ phrase tables + beam search. Built entirely from scratch in Python.
 """
 
 ARTICLE = """
 ---
-⚠️ **Note**: This is a traditional statistical MT system (circa 2010s tech), not a neural model.
-Quality is modest (BLEU ≈ 8) but it demonstrates the full classic pipeline:
+⚠️ **Note**: This is a traditional statistical MT system (circa 2010s).
+Quality is modest (BLEU ≈ 8) but demonstrates the full classic pipeline:
 word alignment → phrase extraction → language modeling → beam search decoding.
 
-[GitHub](https://github.com) · [Model Card](./README.md)
+📦 [Model Card](./README.md)
 """
 
 with gr.Blocks(theme=gr.themes.Soft(), title="Teddy SMT") as demo:
@@ -123,13 +129,14 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Teddy SMT") as demo:
         with gr.Column(scale=1):
             model_choice = gr.Dropdown(
                 choices=[
+                    "ZH → EN (fast_align)",
                     "ZH → EN (sym)",
-                    "EN → ZH (sym)",
                     "EN → ZH (fast_align)",
+                    "EN → ZH (sym)",
                 ],
-                value="ZH → EN (sym)",
+                value="ZH → EN (fast_align)",
                 label="Model / Direction",
-                info="sym = IBM2+gdfa (smaller, faster) | fa = fast_align (larger, better)"
+                info="fast_align = HMM alignment (better) | sym = IBM2+gdfa (smaller)"
             )
 
     with gr.Row():
@@ -152,7 +159,7 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Teddy SMT") as demo:
         inputs=[src_text, model_choice],
         outputs=tgt_text,
         fn=translate,
-        cache_examples=True,
+        cache_examples=False,
     )
 
     gr.Markdown(ARTICLE)
