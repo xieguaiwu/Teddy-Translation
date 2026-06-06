@@ -1,0 +1,35 @@
+{
+  "model_type": "phrase-based-smt",
+  "pipeline_tag": "translation",
+  "language": ["zh", "en"],
+  "model_name": "Teddy SMT (Phrase-Based Statistical Machine Translation)",
+  "description": "A classic phrase-based statistical machine translation system for Chinese↔English. Uses fast_align (HMM alignment) + grow-diag-final-and symmetrization + Kneser-Ney trigram language model + beam search decoder. Built entirely from scratch in Python without neural network dependencies.",
+  "author": "",
+  "version": "1.0.0",
+  "model_details": {
+    "architecture": "Phrase-based SMT",
+    "alignment": "fast_align (HMM) + grow-diag-final-and",
+    "language_model": "Kneser-Ney smoothing, 3-gram",
+    "decoder": "Beam search with recombination and future cost estimation",
+    "training_data": "WMT news-commentary v12 (50K sentence pairs)",
+    "phrase_table_size_zh2en_sym": 8705,
+    "phrase_table_size_en2zh_sym": 8729,
+    "phrase_table_size_en2zh_fa": 68228
+  },
+  "tags": [
+    "translation",
+    "smt",
+    "statistical-machine-translation",
+    "chinese",
+    "english",
+    "zh-en",
+    "phrase-based",
+    "fast-align",
+    "kneser-ney",
+    "traditional-ml",
+    "classic-nlp"
+  ],
+  "base_model": null,
+  "datasets": ["wmt/news-commentary-v12"],
+  "library_name": "custom"
+}

@@ -1,0 +1,8 @@
+{
+  "best_bleu": 0.0,
+  "best_params": {
+    "beam_size": 3,
+    "distortion_weight": 0.1
+  },
+  "direction": "zh2en"
+}

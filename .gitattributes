@@ -1,0 +1,11 @@
+# LFS tracking for model files
+models/**/phrase_table.txt filter=lfs diff=lfs merge=lfs -text
+models/**/lm.json filter=lfs diff=lfs merge=lfs -text
+models/**/lm.pkl filter=lfs diff=lfs merge=lfs -text
+models/**/lex.table filter=lfs diff=lfs merge=lfs -text
+models/**/distortion.table filter=lfs diff=lfs merge=lfs -text
+models/**/src_vocab.json filter=lfs diff=lfs merge=lfs -text
+models/**/tgt_vocab.json filter=lfs diff=lfs merge=lfs -text
+models/**/model_info.json filter=lfs diff=lfs merge=lfs -text
+models/**/mert_weights.json filter=lfs diff=lfs merge=lfs -text
+models/**/phrase_table_top5.txt filter=lfs diff=lfs merge=lfs -text

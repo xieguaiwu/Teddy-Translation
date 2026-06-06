@@ -1,0 +1,31 @@
+# Symlink bridge
+Translation
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.so
+.omo/
+
+# Model file artifacts (not needed in repo)
+models/**/output.txt
+
+# WMT raw data (large, not redistributed)
+data/wmt/news-commentary-v12.tgz
+data/wmt/clean/
+data/wmt/train.*
+data/wmt/wmt_tok.*
+data/wmt/wmt_word_*
+data/wmt/*_short.txt
+data/wmt_dl/
+data/generated*/
+data/generated/
+data/mono/
+
+# HF Space env
+.env
+
+# OS
+.DS_Store
+Thumbs.db

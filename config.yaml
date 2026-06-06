@@ -1,0 +1,48 @@
+# SMT Experiment Configuration
+# Cross-architecture text statistics comparison protocol v1.0
+
+data:
+  src_lang: "zh"
+  tgt_lang: "en"
+  max_train_sentences: 100000
+  max_src_len: 80
+  max_tgt_len: 100
+
+alignment:
+  model: "ibm2"                  # ibm1 | ibm2
+  iterations_model1: 5
+  iterations_model2: 5
+  null_prob: 0.08
+
+phrase_table:
+  max_phrase_len: 7
+  min_phrase_count: 2            # Minimum occurrences to include
+  score_features: true
+
+language_model:
+  order: 3                       # N-gram order (3 is standard for small-data SMT; 5 causes 300MB+ unpruned LMs)
+  smoothing: "kneser_ney"        # kneser_ney | modified_kn
+  prune_threshold: 0.0            # 0 = skip expensive pruning (recommended for >10K sentences)
+
+decoder:
+  beam_size: 10
+  stack_size: 100
+  max_phrase_len: 7
+  distortion_limit: 6
+  lm_weight: 1.0
+  translation_weight: 1.0
+  distortion_weight: 0.3
+  word_penalty: -0.5
+  future_cost_estimate: true
+
+moses:
+  image: "amake/moses-smt"
+  container_name: "moses_train"
+  ram_gb: 8
+  cpus: 4
+  working_dir: "/moses/model"
+
+output:
+  bleu_tokenize: "intl"
+  log_level: "INFO"
+  log_file: null                  # Set to path for file logging

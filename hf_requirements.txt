@@ -1,0 +1,23 @@
+# Core SMT Dependencies
+numpy>=1.24
+scipy>=1.10
+
+# NLP
+spacy>=3.7
+zh-core-web-sm>=3.8
+en-core-web-sm>=3.8
+
+# Evaluation
+sacrebleu>=2.4
+
+# Language model & text processing
+nltk>=3.9
+
+# Configuration (optional, falls back to JSON)
+pyyaml>=6.0
+
+# Machine learning pipeline
+scikit-learn>=1.3
+
+# Statistics
+statsmodels>=0.14
