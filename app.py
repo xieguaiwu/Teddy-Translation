@@ -31,8 +31,12 @@ def get_model(direction: str, variant: str = "sym"):
         model_dir = base / "zh2en_sym"
         if variant == "fa":
             model_dir = base / "zh2en_fa"
+        elif variant == "213k_fa":
+            model_dir = base / "zh2en_213k_fa"
     elif direction == "en2zh":
         model_dir = base / f"en2zh_{variant}"
+        if variant == "sym":
+            model_dir = base / "en2zh_sym"
 
     # Load language model
     lm_path = model_dir / "lm.json"
@@ -96,11 +100,11 @@ def translate(text: str, model_choice: str) -> str:
 
 # ── Examples ─────────────────────────────────────────────────
 EXAMPLES = [
-    ["企业推动协议", "ZH → EN (sym)"],
-    ["President announced new economic policy", "EN → ZH (fast_align)"],
+    ["企业推动协议", "ZH → EN (213K fast_align)"],
+    ["President announced new economic policy", "EN → ZH (213K fast_align)"],
     ["经济危机不断加深", "ZH → EN (fast_align)"],
-    ["The unemployment rate fell to its lowest level", "EN → ZH (sym)"],
-    ["最新数据显示中国第三季度GDP增长超出预期", "ZH → EN (fast_align)"],
+    ["The unemployment rate fell to its lowest level", "EN → ZH (fast_align)"],
+    ["最新数据显示中国第三季度GDP增长超出预期", "ZH → EN (213K fast_align)"],
 ]
 
 # ── UI ───────────────────────────────────────────────────────
@@ -131,12 +135,14 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Teddy SMT") as demo:
                 choices=[
                     "ZH → EN (fast_align)",
                     "ZH → EN (sym)",
+                    "ZH → EN (213K fast_align)",
                     "EN → ZH (fast_align)",
                     "EN → ZH (sym)",
+                    "EN → ZH (213K fast_align)",
                 ],
                 value="ZH → EN (fast_align)",
                 label="Model / Direction",
-                info="fast_align = HMM alignment (better) | sym = IBM2+gdfa (smaller)"
+                info="50K data = 65K phrases | 213K = 397K+ phrases"
             )
 
     with gr.Row():

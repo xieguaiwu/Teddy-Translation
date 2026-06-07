@@ -29,9 +29,12 @@ Teddy is a **pure-Python phrase-based statistical machine translation system** f
 
 | Direction | Model | Phrases | Quality |
 |:----------|:------|:--------|:--------|
-| ZH → EN | sym (IBM2+gdfa) | 8,705 | BLEU ≈ 8, semi-readable |
+| ZH → EN | sym (IBM2+gdfa) | 8,705 | semi-readable |
+| ZH → EN | fast_align (50K) | 65,909 | best 50K model |
+| **ZH → EN** | **fast_align (213K)** | **396,738** | **🌟 Largest** |
 | EN → ZH | sym (IBM2+gdfa) | 8,729 | semi-readable |
-| **EN → ZH** | **fast_align+gdfa** | **68,228** | **🌟 Best** |
+| **EN → ZH** | **fast_align (50K)** | **68,228** | **🌟 Best 50K** |
+| EN → ZH | fast_align (213K) | 423,009 | largest model |
 
 **🇨🇳 中文**: Teddy 是一个纯 Python 实现的短语级统计机器翻译系统，支持中英互译。完整实现了词对齐（IBM2 + fast_align HMM）、短语抽取、Kneser-Ney 3-gram 语言模型和束搜索解码器。**无需任何神经网络依赖**。
 
