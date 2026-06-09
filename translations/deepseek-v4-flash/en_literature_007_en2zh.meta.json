@@ -1,0 +1,12 @@
+{
+  "model_requested": "deepseek-v4-flash",
+  "model_served": "deepseek-v4-flash",
+  "finish_reason": "stop",
+  "temperature": 0.0,
+  "seed": 42,
+  "output_chars": 520,
+  "source_chars": 1734,
+  "prompt_tokens": 396,
+  "completion_tokens": 372,
+  "total_tokens": 768
+}

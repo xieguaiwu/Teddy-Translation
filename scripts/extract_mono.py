@@ -210,6 +210,19 @@ def main():
                 if ext in TEXT_EXTS | EBOOK_EXTS | {PDF_EXT}:
                     files_to_process.append(os.path.join(root, f))
 
+    # Also scan root-level files that match LANG_DIRS names (e.g., 外国文学名著丛书.mobi)
+    root_dirs_set = set(LANG_DIRS[args.lang])
+    for f in os.listdir(args.books_root):
+        fpath = os.path.join(args.books_root, f)
+        if os.path.isfile(fpath):
+            name_no_ext = Path(f).stem
+            ext = Path(f).suffix.lower()
+            # Check if filename (without ext) contains any known dir name
+            if ext in TEXT_EXTS | EBOOK_EXTS | {PDF_EXT}:
+                if any(dname in name_no_ext for dname in root_dirs_set):
+                    files_to_process.append(fpath)
+                    print(f"  [ROOT] Added root-level file: {f}")
+
     print(f"Found {len(files_to_process)} candidate files in {len(target_dirs)} directories")
     if args.max_files:
         files_to_process = files_to_process[:args.max_files]

@@ -1,0 +1,12 @@
+{
+  "model_requested": "kimi-k2.6",
+  "model_served": "moonshotai/kimi-k2.6-20260420",
+  "finish_reason": "stop",
+  "temperature": 0.0,
+  "seed": 42,
+  "output_chars": 4163,
+  "source_chars": 1089,
+  "prompt_tokens": 756,
+  "completion_tokens": 13646,
+  "total_tokens": 14402
+}

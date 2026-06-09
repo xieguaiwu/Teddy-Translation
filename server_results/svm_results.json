@@ -1,0 +1,18 @@
+{
+  "accuracy_mean": 0.9796,
+  "accuracy_std": 0.0135,
+  "f1_mean": 0.9825,
+  "f1_std": 0.0114,
+  "mcc_mean": 0.9592,
+  "mcc_std": 0.0268,
+  "feature_weights": {
+    "sttr": -2.1849,
+    "mean_sent_len": 1.8937,
+    "sent_polarity": -0.0718,
+    "pos_entropy": -0.7947,
+    "func_word_ratio": -1.2188
+  },
+  "n_samples": 833,
+  "n_smt": 360,
+  "n_llm": 473
+}

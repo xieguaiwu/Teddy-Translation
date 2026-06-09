@@ -1,0 +1,12 @@
+{
+  "model_requested": "kimi-k2.6",
+  "model_served": "accounts/fireworks/models/kimi-k2p6",
+  "finish_reason": "stop",
+  "temperature": 0.0,
+  "seed": 42,
+  "output_chars": 2044,
+  "source_chars": 473,
+  "prompt_tokens": 287,
+  "completion_tokens": 3729,
+  "total_tokens": 4016
+}

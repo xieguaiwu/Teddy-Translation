@@ -1,0 +1,6 @@
+{
+  "model_served": "frank/GLM-5.1",
+  "finish_reason": "stop",
+  "prompt_tokens": 130,
+  "completion_tokens": 883
+}

@@ -1,0 +1,12 @@
+{
+  "model_requested": "glm-5",
+  "model_served": "frank/GLM-5.1",
+  "finish_reason": "stop",
+  "temperature": 0.0,
+  "seed": 42,
+  "output_chars": 2021,
+  "source_chars": 479,
+  "prompt_tokens": 297,
+  "completion_tokens": 2300,
+  "total_tokens": 2597
+}

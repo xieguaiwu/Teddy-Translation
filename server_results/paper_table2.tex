@@ -1,0 +1,20 @@
+\begin{table}[h]
+\centering
+\caption{SMT vs LLM: Feature Comparison by Direction}
+\begin{tabular}{lrrrr}
+\toprule
+Direction & Feature & SMT Mean & LLM Mean & Cohen's d \\
+\midrule
+  zh2en & STTR & 0.928 & 0.763 & 1.882 \\
+   & Mean Sent. Length & 5.555 & 17.901 & -5.608 \\
+   & Sentiment Polarity & 0.127 & 0.597 & -0.791 \\
+   & POS Entropy & 0.589 & 0.582 & 0.050 \\
+   & Func. Word Ratio & 0.178 & 0.291 & -0.945 \\
+  en2zh & STTR & 0.983 & 0.727 & 5.978 \\
+   & Mean Sent. Length & 1.000 & 1.013 & -0.426 \\
+   & Sentiment Polarity & 0.000 & 0.000 & 0.000 \\
+   & POS Entropy & 0.304 & 0.354 & -0.517 \\
+   & Func. Word Ratio & 0.000 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -29,3 +29,9 @@ data/mono/
 # OS
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+
+# Backups
+server_backup_*/

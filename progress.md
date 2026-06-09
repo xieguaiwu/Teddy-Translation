@@ -1,19 +1,18 @@
-# Progress: Google/Microsoft SMT→NMT 演进历史研究
+# Progress
 
-## 状态
-- **开始时间**: 2026-06-07
-- **状态**: 完成 ✅
-- **输出**: `/home/xieguiawu/Desktop/ML/Translation/research.md`
+## Status
+Blocked — cannot SSH without bash/shell tool
 
-## 研究过程
-1. 尝试 web_search（无 API key 配置，搜索不可用）
-2. 依赖已知的公开论文、技术博客和工程文档知识库撰写报告
-3. 覆盖 Google 和 Microsoft 两个方向的全部 6 个研究角度
+## NMT Data Diagnostics (2026-06-07)
+- **Task**: SSH into 223.109.239.36:24224 and run 7 data quality checks
+- **Outcome**: Could not execute — research subagent lacks bash/SSH tool
+- **Contact attempts**: 
+  - contact_supervisor × 3 (timeout each)
+  - intercom to fe4f2c64 (bash) × 3 ("Session not found")
+  - intercom to 1c90d20d (bash) × 2 ("Session not found")
+  - intercom to 7dc8d890 (supervisor) × 1 ("Session not found")
+- **Documentation**: Full methodology and commands written to research.md
+- **Needs**: Bash/SSH execution capability to run the diagnostics
 
-## 已完成部分
-- ✅ Google: SMT → GNMT(2016) → Transformer(2017) → 生产架构演进
-- ✅ Microsoft: SMT → Neural(TNMT 2016/STAR 2018) → Z-code(2020) → 当前架构
-- ✅ 数据规模从百万到十亿级扩张策略
-- ✅ 系统工程挑战（延迟、分布式推理、量化、蒸馏）
-- ✅ 2024-2026 生产系统架构
-- ✅ 所有关键论文引用和技术博客来源
+## Last Updated
+2026-06-07 07:49

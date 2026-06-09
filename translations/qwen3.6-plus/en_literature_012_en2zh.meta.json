@@ -1,0 +1,12 @@
+{
+  "model_requested": "qwen3.6-plus",
+  "model_served": "qwen3.6-plus",
+  "finish_reason": "stop",
+  "temperature": 0.0,
+  "seed": 42,
+  "output_chars": 527,
+  "source_chars": 1651,
+  "prompt_tokens": 396,
+  "completion_tokens": 4434,
+  "total_tokens": 4830
+}

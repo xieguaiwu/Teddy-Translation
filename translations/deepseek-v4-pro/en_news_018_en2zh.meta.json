@@ -1,0 +1,12 @@
+{
+  "model_requested": "deepseek-v4-pro",
+  "model_served": "deepseek-v4-pro",
+  "finish_reason": "stop",
+  "temperature": 0.0,
+  "seed": 42,
+  "output_chars": 468,
+  "source_chars": 1766,
+  "prompt_tokens": 424,
+  "completion_tokens": 2147,
+  "total_tokens": 2571
+}

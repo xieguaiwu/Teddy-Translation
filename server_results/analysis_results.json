@@ -1,0 +1,356 @@
+{
+  "sttr": {
+    "feature": "sttr",
+    "label": "STTR (Lexical Diversity)",
+    "overall": {
+      "smt_mean": 0.9523,
+      "llm_mean": 0.7447,
+      "smt_n": 360,
+      "llm_n": 473,
+      "diff": 0.2076,
+      "cohens_d": 2.8304,
+      "ks_stat": 0.918,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_zh2en": {
+      "smt_mean": 0.9281,
+      "llm_mean": 0.7625,
+      "diff": 0.1656,
+      "cohens_d": 1.8818,
+      "smt_n": 200,
+      "llm_n": 233,
+      "ks_stat": 0.8614,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_en2zh": {
+      "smt_mean": 0.9826,
+      "llm_mean": 0.7274,
+      "diff": 0.2552,
+      "cohens_d": 5.9782,
+      "smt_n": 160,
+      "llm_n": 240,
+      "ks_stat": 0.9875,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "genre_lit": {
+      "smt_mean": 0.9076,
+      "llm_mean": 0.7317,
+      "diff": 0.1759,
+      "cohens_d": 1.9114,
+      "smt_n": 180,
+      "llm_n": 233,
+      "ks_stat": 0.8444,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "genre_news": {
+      "smt_mean": 0.997,
+      "llm_mean": 0.7573,
+      "diff": 0.2397,
+      "cohens_d": 11.1645,
+      "smt_n": 180,
+      "llm_n": 240,
+      "ks_stat": 1.0,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    }
+  },
+  "mean_sent_len": {
+    "feature": "mean_sent_len",
+    "label": "Mean Sentence Length",
+    "overall": {
+      "smt_mean": 3.5306,
+      "llm_mean": 9.332,
+      "smt_n": 360,
+      "llm_n": 473,
+      "diff": -5.8015,
+      "cohens_d": -0.8619,
+      "ks_stat": 0.4898,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_zh2en": {
+      "smt_mean": 5.555,
+      "llm_mean": 17.901,
+      "diff": -12.346,
+      "cohens_d": -5.6078,
+      "smt_n": 200,
+      "llm_n": 233,
+      "ks_stat": 0.995,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_en2zh": {
+      "smt_mean": 1.0,
+      "llm_mean": 1.013,
+      "diff": -0.013,
+      "cohens_d": -0.4256,
+      "smt_n": 160,
+      "llm_n": 240,
+      "ks_stat": 0.1042,
+      "ks_pvalue": 0.237086,
+      "ks_sig": "ns"
+    },
+    "genre_lit": {
+      "smt_mean": 3.6889,
+      "llm_mean": 8.7209,
+      "diff": -5.0321,
+      "cohens_d": -0.7838,
+      "smt_n": 180,
+      "llm_n": 233,
+      "ks_stat": 0.485,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "genre_news": {
+      "smt_mean": 3.3722,
+      "llm_mean": 9.9253,
+      "diff": -6.5531,
+      "cohens_d": -0.935,
+      "smt_n": 180,
+      "llm_n": 240,
+      "ks_stat": 0.5,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    }
+  },
+  "sent_polarity": {
+    "feature": "sent_polarity",
+    "label": "Sentiment Polarity",
+    "overall": {
+      "smt_mean": 0.0707,
+      "llm_mean": 0.294,
+      "smt_n": 360,
+      "llm_n": 473,
+      "diff": -0.2234,
+      "cohens_d": -0.4606,
+      "ks_stat": 0.3869,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_zh2en": {
+      "smt_mean": 0.1272,
+      "llm_mean": 0.5969,
+      "diff": -0.4697,
+      "cohens_d": -0.7913,
+      "smt_n": 200,
+      "llm_n": 233,
+      "ks_stat": 0.7854,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_en2zh": {
+      "smt_mean": 0.0,
+      "llm_mean": 0.0,
+      "diff": 0.0,
+      "cohens_d": 0,
+      "smt_n": 160,
+      "llm_n": 240,
+      "ks_stat": 0.0,
+      "ks_pvalue": 1.0,
+      "ks_sig": "ns"
+    },
+    "genre_lit": {
+      "smt_mean": 0.0279,
+      "llm_mean": 0.0877,
+      "diff": -0.0598,
+      "cohens_d": -0.1192,
+      "smt_n": 180,
+      "llm_n": 233,
+      "ks_stat": 0.279,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "genre_news": {
+      "smt_mean": 0.1134,
+      "llm_mean": 0.4943,
+      "diff": -0.3809,
+      "cohens_d": -0.9193,
+      "smt_n": 180,
+      "llm_n": 240,
+      "ks_stat": 0.5,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    }
+  },
+  "pos_entropy": {
+    "feature": "pos_entropy",
+    "label": "POS Tag Entropy",
+    "overall": {
+      "smt_mean": 0.4624,
+      "llm_mean": 0.4663,
+      "smt_n": 360,
+      "llm_n": 473,
+      "diff": -0.0039,
+      "cohens_d": -0.0226,
+      "ks_stat": 0.2325,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_zh2en": {
+      "smt_mean": 0.5889,
+      "llm_mean": 0.5821,
+      "diff": 0.0067,
+      "cohens_d": 0.0503,
+      "smt_n": 200,
+      "llm_n": 233,
+      "ks_stat": 0.4207,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_en2zh": {
+      "smt_mean": 0.3044,
+      "llm_mean": 0.3539,
+      "diff": -0.0495,
+      "cohens_d": -0.5168,
+      "smt_n": 160,
+      "llm_n": 240,
+      "ks_stat": 0.5229,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "genre_lit": {
+      "smt_mean": 0.5136,
+      "llm_mean": 0.4857,
+      "diff": 0.0279,
+      "cohens_d": 0.1432,
+      "smt_n": 180,
+      "llm_n": 233,
+      "ks_stat": 0.2833,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "genre_news": {
+      "smt_mean": 0.4112,
+      "llm_mean": 0.4475,
+      "diff": -0.0363,
+      "cohens_d": -0.2623,
+      "smt_n": 180,
+      "llm_n": 240,
+      "ks_stat": 0.2875,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    }
+  },
+  "func_word_ratio": {
+    "feature": "func_word_ratio",
+    "label": "Function Word Ratio",
+    "overall": {
+      "smt_mean": 0.099,
+      "llm_mean": 0.1435,
+      "smt_n": 360,
+      "llm_n": 473,
+      "diff": -0.0445,
+      "cohens_d": -0.2941,
+      "ks_stat": 0.3327,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_zh2en": {
+      "smt_mean": 0.1782,
+      "llm_mean": 0.2914,
+      "diff": -0.1131,
+      "cohens_d": -0.9454,
+      "smt_n": 200,
+      "llm_n": 233,
+      "ks_stat": 0.7092,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_en2zh": {
+      "smt_mean": 0.0,
+      "llm_mean": 0.0,
+      "diff": 0.0,
+      "cohens_d": 0,
+      "smt_n": 160,
+      "llm_n": 240,
+      "ks_stat": 0.0,
+      "ks_pvalue": 1.0,
+      "ks_sig": "ns"
+    },
+    "genre_lit": {
+      "smt_mean": 0.1236,
+      "llm_mean": 0.1386,
+      "diff": -0.015,
+      "cohens_d": -0.0921,
+      "smt_n": 180,
+      "llm_n": 233,
+      "ks_stat": 0.2623,
+      "ks_pvalue": 1e-06,
+      "ks_sig": "***"
+    },
+    "genre_news": {
+      "smt_mean": 0.0744,
+      "llm_mean": 0.1483,
+      "diff": -0.0739,
+      "cohens_d": -0.5371,
+      "smt_n": 180,
+      "llm_n": 240,
+      "ks_stat": 0.4028,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    }
+  },
+  "alpha_ratio": {
+    "feature": "alpha_ratio",
+    "label": "Alphabetic Ratio",
+    "overall": {
+      "smt_mean": 0.8365,
+      "llm_mean": 0.8528,
+      "smt_n": 360,
+      "llm_n": 473,
+      "diff": -0.0162,
+      "cohens_d": -0.1885,
+      "ks_stat": 0.2114,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_zh2en": {
+      "smt_mean": 0.7838,
+      "llm_mean": 0.8074,
+      "diff": -0.0236,
+      "cohens_d": -0.2793,
+      "smt_n": 200,
+      "llm_n": 233,
+      "ks_stat": 0.3785,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "dir_en2zh": {
+      "smt_mean": 0.9025,
+      "llm_mean": 0.8969,
+      "diff": 0.0056,
+      "cohens_d": 0.1185,
+      "smt_n": 160,
+      "llm_n": 240,
+      "ks_stat": 0.4771,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "genre_lit": {
+      "smt_mean": 0.8046,
+      "llm_mean": 0.8366,
+      "diff": -0.032,
+      "cohens_d": -0.3126,
+      "smt_n": 180,
+      "llm_n": 233,
+      "ks_stat": 0.2944,
+      "ks_pvalue": 0.0,
+      "ks_sig": "***"
+    },
+    "genre_news": {
+      "smt_mean": 0.8685,
+      "llm_mean": 0.8685,
+      "diff": -0.0,
+      "cohens_d": -0.0,
+      "smt_n": 180,
+      "llm_n": 240,
+      "ks_stat": 0.2458,
+      "ks_pvalue": 6e-06,
+      "ks_sig": "***"
+    }
+  }
+}
