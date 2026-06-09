@@ -1,6 +1,0 @@
-{
-  "model_served": "deepseek-v4-flash",
-  "finish_reason": "stop",
-  "prompt_tokens": 195,
-  "completion_tokens": 1308
-}

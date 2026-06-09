@@ -1,6 +1,0 @@
-{
-  "model_served": "deepseek-v4-pro",
-  "finish_reason": "stop",
-  "prompt_tokens": 197,
-  "completion_tokens": 1201
-}

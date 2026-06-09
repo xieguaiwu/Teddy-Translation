@@ -23,15 +23,44 @@ data/generated*/
 data/generated/
 data/mono/
 
+# Experiment data (local only, not in repo)
+data/
+
+# Source texts (local only)
+source_texts/
+
+# Translation outputs (local only)
+translations/
+translations_verify/
+output/
+
+# Server results (local only)
+server_results/
+server_backup_*/
+results/
+
+# Paper drafts (local only)
+paper/
+
+# Dev notes (local only)
+notes/
+docs/
+research.md
+progress.md
+*.log
+
+# Incomplete models (local only)
+models/zh2en_213k_fa_enhanced/
+models/zh2en_213k_fa_enhanced_v2/
+
+# Decoder variants (don't push)
+smt/decoder_fixed.py
+smt/decoder_opt.py
+smt/decoder_original.py
+
 # HF Space env
 .env
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Logs
-*.log
-
-# Backups
-server_backup_*/
